@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Women's Clothing Collection</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title h2 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .category-tabs {
+      margin: 20px 0;
+    }
+
+    .tab-btn {
+      background: #ddd;
+      border: none;
+      padding: 10px 20px;
+      margin-right: 10px;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+
+    .tab-btn.active {
+      background: #333;
+      color: #fff;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .product-actions {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .wishlist-btn, .cart-btn {
+      background: white;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .wishlist-btn:hover, .cart-btn:hover {
+      background: #ff6b6b;
+      color: white;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product-category {
+      color: #888;
+      font-size: 14px;
+    }
+
+    .product-title {
+      font-size: 18px;
+      margin: 8px 0;
+    }
+
+    .product-meta {
+      display: flex;
+      gap: 15px;
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .product-material {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .product-price {
+      font-weight: bold;
+    }
+
+    .buy-now-btn {
+      background: #333;
+      color: white;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: background 0.3s;
+    }
+
+    .buy-now-btn:hover {
+      background: #ff6b6b;
+    }
+  </style>
+</head>
+<body>
+
+<section class="container" id="women-clothing">
+  <div class="section-title">
+    <h2>Women's Clothing Collection</h2>
+    <p>Elegant styles for the modern woman</p>
+  </div>
+
+  <div class="category-tabs">
+    <button class="tab-btn active" data-category="all">All</button>
+    <button class="tab-btn" data-category="dresses">Dresses</button>
+    <button class="tab-btn" data-category="tops">Tops</button>
+    <button class="tab-btn" data-category="jeans">Jeans</button>
+    <button class="tab-btn" data-category="jackets">Jackets</button>
+  </div>
+
+  <div class="products">
+    <!-- Product 1 -->
+    <div class="product-card" data-category="dresses">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dress">
+        <div class="product-actions">
+          <button class="wishlist-btn" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+          <button class="cart-btn" title="Add to Cart"><i class="fas fa-shopping-cart"></i></button>
+        </div>
+      </div>
+      <div class="product-info">
+        <p class="product-category">Dresses</p>
+        <h3 class="product-title">Floral Summer Dress</h3>
+        <div class="product-meta">
+          <span>Colors: 4</span>
+          <span>Sizes: XS-XL</span>
+        </div>
+        <div class="product-material">Lightweight Chiffon</div>
+        <div class="product-footer">
+          <p class="product-price">$39.99</p>
+          <button class="buy-now-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card" data-category="tops">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Top">
+        <div class="product-actions">
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+        </div>
+      </div>
+      <div class="product-info">
+        <p class="product-category">Tops</p>
+        <h3 class="product-title">Silk Blouse</h3>
+        <div class="product-meta">
+          <span>Colors: 3</span>
+          <span>Sizes: S-L</span>
+        </div>
+        <div class="product-material">100% Pure Silk</div>
+        <div class="product-footer">
+          <p class="product-price">$45.99</p>
+          <button class="buy-now-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card" data-category="jeans">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Jeans">
+        <div class="product-actions">
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+        </div>
+      </div>
+      <div class="product-info">
+        <p class="product-category">Jeans</p>
+        <h3 class="product-title">High Waist Skinny Jeans</h3>
+        <div class="product-meta">
+          <span>Colors: 2</span>
+          <span>Sizes: 24-34</span>
+        </div>
+        <div class="product-material">Stretch Denim</div>
+        <div class="product-footer">
+          <p class="product-price">$69.99</p>
+          <button class="buy-now-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card" data-category="jackets">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Jacket">
+        <div class="product-actions">
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+        </div>
+      </div>
+      <div class="product-info">
+        <p class="product-category">Jackets</p>
+        <h3 class="product-title">Faux Leather Jacket</h3>
+        <div class="product-meta">
+          <span>Colors: 3</span>
+          <span>Sizes: XS-L</span>
+        </div>
+        <div class="product-material">Vegan Leather</div>
+        <div class="product-footer">
+          <p class="product-price">$89.99</p>
+          <button class="buy-now-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Filter logic
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const productCards = document.querySelectorAll(".product-card");
+
+  tabButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      tabButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      const category = button.getAttribute("data-category");
+
+      productCards.forEach(card => {
+        const cardCategory = card.getAttribute("data-category");
+        card.style.display = (category === "all" || cardCategory === category) ? "block" : "none";
+      });
+    });
+  });
+
+  // Button functionality placeholders
+  document.querySelectorAll(".wishlist-btn").forEach(btn => {
+    btn.addEventListener("click", () => alert("Added to Wishlist!"));
+  });
+
+  document.querySelectorAll(".cart-btn").forEach(btn => {
+    btn.addEventListener("click", () => alert("Added to Cart!"));
+  });
+
+  document.querySelectorAll(".buy-now-btn").forEach(btn => {
+    btn.addEventListener("click", () => alert("Redirecting to Purchase Page..."));
+  });
+</script>
+
+</body>
+</html>
