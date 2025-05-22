@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StepStyle - Premium Footwear for Everyone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+        
+        .logo span {
+            color: #333;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ff6b6b;
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #ff5252;
+        }
+        
+        .container {
+            padding: 80px 5%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #777;
+            font-size: 18px;
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .tab-btn {
+            padding: 10px 25px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .tab-btn.active {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background-color: #ff6b6b;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-category {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: #ff6b6b;
+            font-size: 20px;
+        }
+        
+        .newsletter {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 60px 5%;
+            text-align: center;
+        }
+        
+        .newsletter h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            padding: 15px 30px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #222;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 5% 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #ff6b6b;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            background-color: #444;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #ff6b6b;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #bbb;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Step<span>Style</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#women">Women</a></li>
+                    <li><a href="#men">Men</a></li>
+                    <li><a href="#kids">Kids</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero" id="home">
+        <h1>Step Into Style</h1>
+        <p>Discover the perfect pair of shoes for every occasion in our extensive collection of premium footwear for women, men, and kids.</p>
+        <a href="#women" class="btn">Shop Now</a>
+    </section>
+    
+    <section class="container" id="women">
+        <div class="section-title">
+            <h2>Women's Collection</h2>
+            <p>20 stunning styles to complement your wardrobe</p>
+        </div>
+        
+        <div class="products">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Women's Sneakers">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Women • Sneakers</p>
+                    <h3 class="product-title">Classic White Sneakers</h3>
+                    <p class="product-price">$89.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Women's Heels">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Women • Heels</p>
+                    <h3 class="product-title">Elegant Black Pumps</h3>
+                    <p class="product-price">$129.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Women's Boots">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Women • Boots</p>
+                    <h3 class="product-title">Winter Leather Boots</h3>
+                    <p class="product-price">$159.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Women's Sandals">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Women • Sandals</p>
+                    <h3 class="product-title">Summer Strappy Sandals</h3>
+                    <p class="product-price">$69.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Women's Flats">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Women • Flats</p>
+                    <h3 class="product-title">Comfy Ballet Flats</h3>
+                    <p class="product-price">$59.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Women's Running Shoes">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Women • Athletic</p>
+                    <h3 class="product-title">Performance Running Shoes</h3>
+                    <p class="product-price">$119.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 7 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Women's Loafers">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Women • Loafers</p>
+                    <h3 class="product-title">Classic Leather Loafers</h3>
+                    <p class="product-price">$99.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 8 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Women's Wedges">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Women • Wedges</p>
+                    <h3 class="product-title">Casual Summer Wedges</h3>
+                    <p class="product-price">$79.99</p>
+                </div>
+            </div>
+            
+            <!-- Additional products would continue here to reach 20 -->
+            <!-- Product 9-20 would follow the same pattern -->
+            
+        </div>
+    </section>
+    
+    <section class="container" id="men">
+        <div class="section-title">
+            <h2>Men's Collection</h2>
+            <p>20 premium styles for the modern man</p>
+        </div>
+        
+        <div class="products">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Men's Sneakers">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Men • Sneakers</p>
+                    <h3 class="product-title">Urban Street Sneakers</h3>
+                    <p class="product-price">$109.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Men's Dress Shoes">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Men • Dress</p>
+                    <h3 class="product-title">Oxford Leather Shoes</h3>
+                    <p class="product-price">$149.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Men's Boots">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Men • Boots</p>
+                    <h3 class="product-title">Rugged Work Boots</h3>
+                    <p class="product-price">$179.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Men's Running Shoes">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Men • Athletic</p>
+                    <h3 class="product-title">Performance Running Shoes</h3>
+                    <p class="product-price">$129.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Men's Loafers">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Men • Loafers</p>
+                    <h3 class="product-title">Casual Leather Loafers</h3>
+                    <p class="product-price">$99.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Men's Sandals">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Men • Sandals</p>
+                    <h3 class="product-title">Comfortable Sport Sandals</h3>
+                    <p class="product-price">$59.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 7 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Men's Slip-ons">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Men • Casual</p>
+                    <h3 class="product-title">Canvas Slip-on Shoes</h3>
+                    <p class="product-price">$69.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 8 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Men's Hiking Shoes">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Men • Outdoor</p>
+                    <h3 class="product-title">Trail Hiking Shoes</h3>
+                    <p class="product-price">$139.99</p>
+                </div>
+            </div>
+            
+            <!-- Additional products would continue here to reach 20 -->
+            <!-- Product 9-20 would follow the same pattern -->
+            
+        </div>
+    </section>
+    
+    <section class="container" id="kids">
+        <div class="section-title">
+            <h2>Kids' Collection</h2>
+            <p>20 adorable styles for your little ones</p>
+        </div>
+        
+        <div class="products">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Kids' Sneakers">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Kids • Sneakers</p>
+                    <h3 class="product-title">Colorful Light-up Sneakers</h3>
+                    <p class="product-price">$49.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Kids' Sandals">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Kids • Sandals</p>
+                    <h3 class="product-title">Adjustable Strap Sandals</h3>
+                    <p class="product-price">$29.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Kids' Boots">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Kids • Boots</p>
+                    <h3 class="product-title">Winter Waterproof Boots</h3>
+                    <p class="product-price">$59.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Kids' Dress Shoes">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Kids • Dress</p>
+                    <h3 class="product-title">Patent Leather Dress Shoes</h3>
+                    <p class="product-price">$39.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Kids' Running Shoes">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Kids • Athletic</p>
+                    <h3 class="product-title">Breathable Running Shoes</h3>
+                    <p class="product-price">$44.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Kids' Slip-ons">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Kids • Casual</p>
+                    <h3 class="product-title">Easy-On Canvas Shoes</h3>
+                    <p class="product-price">$34.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 7 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Kids' Rain Boots">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Kids • Boots</p>
+                    <h3 class="product-title">Colorful Rain Boots</h3>
+                    <p class="product-price">$39.99</p>
+                </div>
+            </div>
+            
+            <!-- Product 8 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Kids' School Shoes">
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Kids • School</p>
+                    <h3 class="product-title">Durable School Shoes</h3>
+                    <p class="product-price">$49.99</p>
+                </div>
+            </div>
+            
+            <!-- Additional products would continue here to reach 20 -->
+            <!-- Product 9-20 would follow the same pattern -->
+            
+        </div>
+    </section>
+    
+    <section class="newsletter">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter to receive exclusive offers, new arrivals, and style tips straight to your inbox.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+    
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>StepStyle</h3>
+                <p>Your destination for premium footwear for the whole family. Quality, comfort, and style in every step.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f">f</i></a>
+                    <a href="#"><i class="fab fa-twitter">t</i></a>
+                    <a href="#"><i class="fab fa-instagram">i</i></a>
+                    <a href="#"><i class="fab fa-pinterest">p</i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="#women">Women's Shoes</a></li>
+                    <li><a href="#men">Men's Shoes</a></li>
+                    <li><a href="#kids">Kids' Shoes</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Sale</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="#">Customer Service</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Store Locations</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 StepStyle. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Here you would typically load different product categories
+                    // For this demo, we're just changing the button state
+                });
+            });
+        });
+    </script>
+</body>
+</html>
