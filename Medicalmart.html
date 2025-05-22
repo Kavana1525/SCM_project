@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedicoMart - Medical E-commerce</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head><body>
+  <header>
+    <h1>MedicoMart</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>  <section class="hero">
+    <h2>Your Trusted Medical Supplies Store</h2>
+    <p>Shop medicines, equipment, and more.</p>
+    <a href="#products" class="btn">Shop Now</a>
+  </section>  <section id="products" class="product-section">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/thermometer.jpg" alt="Thermometer">
+        <h3>Digital Thermometer</h3>
+        <p>$10</p>
+        <button onclick="addToCart('Digital Thermometer')">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/mask.jpg" alt="Face Mask">
+        <h3>Face Mask (Pack of 50)</h3>
+        <p>$15</p>
+        <button onclick="addToCart('Face Mask')">Add to Cart</button>
+      </div>
+      <!-- Add more products as needed -->
+    </div>
+  </section>  <section id="about">
+    <h2>About Us</h2>
+    <p>We are a reliable supplier of medical essentials and pharmaceuticals. Fast delivery and quality guaranteed.</p>
+  </section>  <section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>  <footer>
+    <p>&copy; 2025 MedicoMart. All rights reserved.</p>
+  </footer>
+</body></html>
