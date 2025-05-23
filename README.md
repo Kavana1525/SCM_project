@@ -2,7 +2,7 @@
 
 (A modern and responsive online shopping platform)
 
-
+which will make your life smooth.can buy things while you are on your counch or bed
 ---
 
 🌟 Project Overview 🌟
